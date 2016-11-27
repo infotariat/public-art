@@ -1,18 +1,15 @@
 # public_art.r
 
-# An exercise in reading and cleaning a file.
+################################################
+# Uses data obtained from civicapps.org
+# Public art works in the city of Portland, OR
+################################################
 
 
-# Create a connection to the file
-con <- file("public_art.csv", "rt")
+# Preliminaries
+require(tidyverse)
+setwd("~/projects/public-art")
 
-# Read and store the first line
-first_line <- readLines(con, 1)
-first_line # result looks like column headers, sort of. This is good.
+# Get the data
+df <- read_csv("public_art.csv")
 
-# Read and store the second line. Notice we just repeat the call to readLines
-# the connection is keeping track of what we've read already
-second_line <- readLines(con, 1)
-second_line
-
-close(con)
